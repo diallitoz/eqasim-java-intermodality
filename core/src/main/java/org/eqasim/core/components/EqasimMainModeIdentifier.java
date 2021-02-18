@@ -16,9 +16,14 @@ public class EqasimMainModeIdentifier implements MainModeIdentifier {
 	public String identifyMainMode(List<? extends PlanElement> tripElements) {
 		// car_pt mode
 		for (Activity act : TripStructureUtils.getActivities(tripElements, StageActivityHandling.StagesAsNormalActivities)) {
-			if (act.getType().equals("carPt interaction") || act.getType().equals("ptCar interaction")) {
-				return "car_pt";
+			if(TripStructureUtils.isStageActivityType(act.getType())){
+
+				if (act.getType().equals("carPt interaction") || act.getType().equals("ptCar interaction")) {
+					return "car_pt";
+				}
+
 			}
+
 		}
 
 		for (Leg leg : TripStructureUtils.getLegs(tripElements)) {

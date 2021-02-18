@@ -32,6 +32,8 @@ public class MELModeAvailability implements ModeAvailability {
 
         if (carAvailability) {
             modes.add(TransportMode.car);
+            modes.add("car_pt");
+            modes.add("pt_car");//To do: more define the availability of car_pt and pt_car
         }
 
         // Check bike availability

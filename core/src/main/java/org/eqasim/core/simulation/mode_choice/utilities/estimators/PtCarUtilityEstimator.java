@@ -30,7 +30,8 @@ public class PtCarUtilityEstimator implements UtilityEstimator {
     }
 
     protected double estimateConstantUtility() {
-        return parameters.car.alpha_u + parameters.pt.alpha_u;
+        //return parameters.car.alpha_u + parameters.pt.alpha_u;
+        return 1.25;
 
     }
 
@@ -70,8 +71,8 @@ public class PtCarUtilityEstimator implements UtilityEstimator {
     public double estimateUtility(Person person, DiscreteModeChoiceTrip trip, List<? extends PlanElement> elements) {
         PtCarVariables variables = ptCarPredictor.predictVariables(person, trip, elements);
 
-         double utility = 1000000.0;
-        /*
+         //double utility = 1000000.0;
+
         double utility = 0.0;
 
         utility += estimateConstantUtility();
@@ -83,7 +84,7 @@ public class PtCarUtilityEstimator implements UtilityEstimator {
         utility += estimateMonetaryCostUtility(variables);
 
 
-         */
+
         return utility;
     }
 }
